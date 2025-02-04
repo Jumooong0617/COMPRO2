@@ -15,6 +15,7 @@ public class CoffeeOrder{
     };
 
     public static void main(String[] args) {
+
         String[][] COFFEE_MENU = {
                 {"Espresso", "50.0"},
                 {"Latte", "70.0"},
