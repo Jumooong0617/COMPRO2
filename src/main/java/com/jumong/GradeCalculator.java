@@ -2,10 +2,6 @@ package com.jumong;
 import java.io.*;
 import java.util.Scanner;
 
-
-
-
-
 public class GradeCalculator {
     public static final double MIN_GRADE = 50;
     public static final String FILE_DIR = "target/records";
