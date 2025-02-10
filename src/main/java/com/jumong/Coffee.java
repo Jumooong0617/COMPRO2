@@ -24,7 +24,7 @@ public class Coffee {
         this.isDecaf = isDecaf;
         this.stock = stock;
         this.brewMethod = brewMethod;
-        this.flavorNotes = new String[5]; // Limiting flavor notes to 5 for simplicity
+        this.flavorNotes = new String[5];
         this.flavorCount = 0;
     }
 

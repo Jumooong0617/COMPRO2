@@ -30,4 +30,8 @@ public class OrderHere {
         System.out.println();
         System.out.println("Stock left: " + coffee2.getStock());
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 22af55867ec51936d43e8dca77321350eac3d28f
