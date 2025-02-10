@@ -5,7 +5,7 @@ public class OrderHere {
 
         Coffee coffee1 = new Coffee("Espresso", "Arabica", "Medium", 75.00, "Dark",
                 "Colombia", false, 10, "Espresso Machine");
-        Coffee coffee2 = new Coffee("Latte", "Robusta", "Large", 80.00, "Medium",
+        Cgit pe coffee2 = new Coffee("Latte", "Robusta", "Large", 80.00, "Medium",
                 "Brazil", false, 5, "Drip");
 
         System.out.println("Available stock: "+ coffee1.getStock());
