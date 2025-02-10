@@ -15,7 +15,6 @@ public class OrderHere {
         coffee1.updateStock(-2);
         System.out.println(coffee1.describe());
         System.out.println("Price after discount: $" + coffee1.getPrice());
-        System.out.println("Stock left: " + coffee1.getStock());
 
         coffee2.addFlavor("Vanilla");
         coffee2.setDecaf(true);
@@ -24,6 +23,8 @@ public class OrderHere {
         coffee2.updateStock(3);
         System.out.println(coffee2.describe());
         System.out.println("New Price: $" + coffee2.getPrice());
+
+        System.out.println();
         System.out.println("Stock left: " + coffee2.getStock());
     }
 }
