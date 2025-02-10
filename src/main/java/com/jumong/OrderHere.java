@@ -3,10 +3,13 @@ package com.jumong;
 public class OrderHere {
     public static void main(String[] args) {
 
-        Coffee coffee1 = new Coffee("Espresso", "Arabica", "Medium", 3.50, "Dark",
+        Coffee coffee1 = new Coffee("Espresso", "Arabica", "Medium", 75.00, "Dark",
                 "Colombia", false, 10, "Espresso Machine");
-        Coffee coffee2 = new Coffee("Latte", "Robusta", "Large", 4.00, "Medium",
+        Coffee coffee2 = new Coffee("Latte", "Robusta", "Large", 80.00, "Medium",
                 "Brazil", false, 5, "Drip");
+
+        System.out.println("Available stock: "+ coffee1.getStock());
+        System.out.println("=========================================================================================");
 
         coffee1.addFlavor("Chocolate");
         coffee1.addFlavor("Nutty");
@@ -14,7 +17,7 @@ public class OrderHere {
         coffee1.discount(10);
         coffee1.updateStock(-2);
         System.out.println(coffee1.describe());
-        System.out.println("Price after discount: $" + coffee1.getPrice());
+        System.out.println("Price after discount: ₱" + coffee1.getPrice());
 
         coffee2.addFlavor("Vanilla");
         coffee2.setDecaf(true);
@@ -22,8 +25,8 @@ public class OrderHere {
         coffee2.calculatePrice("Large");
         coffee2.updateStock(3);
         System.out.println(coffee2.describe());
-        System.out.println("New Price: $" + coffee2.getPrice());
-
+        System.out.println("New Price: ₱" + coffee2.getPrice());
+        System.out.println("=========================================================================================");
         System.out.println();
         System.out.println("Stock left: " + coffee2.getStock());
     }
