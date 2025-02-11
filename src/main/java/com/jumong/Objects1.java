@@ -1,16 +1,16 @@
 package com.jumong;
 
-public class OrderHere {
+public class Objects1 {
     public static void main(String[] args) {
 
-        Coffee coffee1 = new Coffee("Espresso", "Arabica", "Medium", 75.00, "Dark",
+        Objects2 coffee1 = new Objects2("Espresso", "Arabica", "Medium", 75.00, "Dark",
                 "Colombia", false, 10, "Espresso Machine");
-        Coffee coffee2 = new Coffee("Latte", "Robusta", "Large", 80.00, "Medium",
+        Objects2 coffee2 = new Objects2("Latte", "Robusta", "Large", 80.00, "Medium",
                 "Brazil", false, 5, "Drip");
 
-        System.out.println("Available stock: "+ coffee1.getStock());
+        System.out.println("Available stock: " + coffee1.getStock());
         System.out.println("=========================================================================================");
-
+        System.out.println("Order Description: ");
         coffee1.addFlavor("Chocolate");
         coffee1.addFlavor("Nutty");
         coffee1.calculatePrice("Medium");
@@ -30,8 +30,5 @@ public class OrderHere {
         System.out.println();
         System.out.println("Stock left: " + coffee2.getStock());
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 22af55867ec51936d43e8dca77321350eac3d28f
+
