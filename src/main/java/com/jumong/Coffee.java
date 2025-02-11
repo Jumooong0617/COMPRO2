@@ -1,6 +1,6 @@
 package com.jumong;
 
-public class Objects2 {
+public class OrderHere {
     public String name;
     public String type;
     public String size;
@@ -13,8 +13,8 @@ public class Objects2 {
     public int flavorCount;
     public String brewMethod;
 
-    public Objects2(String name, String type, String size, double price, String roastLevel,
-                    String origin, boolean isDecaf, int stock, String brewMethod) {
+    public OrderHere(String name, String type, String size, double price, String roastLevel,
+                     String origin, boolean isDecaf, int stock, String brewMethod) {
         this.name = name;
         this.type = type;
         this.size = size;

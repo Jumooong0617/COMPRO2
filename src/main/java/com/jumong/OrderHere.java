@@ -1,11 +1,11 @@
 package com.jumong;
 
-public class Objects1 {
+public class Coffee {
     public static void main(String[] args) {
 
-        Objects2 coffee1 = new Objects2("Espresso", "Arabica", "Medium", 75.00, "Dark",
+        OrderHere coffee1 = new OrderHere("Espresso", "Arabica", "Medium", 75.00, "Dark",
                 "Colombia", false, 10, "Espresso Machine");
-        Objects2 coffee2 = new Objects2("Latte", "Robusta", "Large", 80.00, "Medium",
+        OrderHere coffee2 = new OrderHere("Latte", "Robusta", "Large", 80.00, "Medium",
                 "Brazil", false, 5, "Drip");
 
         System.out.println("Available stock: " + coffee1.getStock());
