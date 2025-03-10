@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -46,5 +47,36 @@ public class SpringbootApplication {
 			coffeeList.removeIf(coffee -> coffee.getId() == id);
 			return "redirect:/";
 		}
+
+		@GetMapping("/add")
+		public String add(){
+			return "new";
+		}
+
+		public String save(){
+			return "redirect:/";
+		}
+
+		@GetMapping("/edit")
+		public String edit(@RequestParam int id, Model model) {
+			for (Coffee coffee : coffeeList) {
+				if (coffee.getId() == id) {
+					model.addAttribute("coffee", coffee);
+					return "edit";
+				}
+			}
+			return "redirect:/";
+		}
+
+		@PostMapping("/update")
+		public String update(@RequestParam int id) {
+			for (Coffee coffee : coffeeList) {
+				if (coffee.getId() == id) {
+					break;
+				}
+			}
+			return "redirect:/";
+		}
+
 	}
 }
