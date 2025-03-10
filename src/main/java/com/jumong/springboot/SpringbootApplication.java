@@ -60,19 +60,19 @@ public class HomeController {
 					   @RequestParam int stock,
 					   @RequestParam List<String> flavorNotes,
 					   @RequestParam String brewMethod){
-		Coffee c = new Coffee();
-		c.setId(coffeeList.size() + 1);
-		c.setName(name);
-		c.setType(type);
-		c.setSize(size);
-		c.setPrice(price);
-		c.setRoastLevel(roastLevel);
-		c.setOrigin(origin);
-		c.setDecaf(isDecaf);
-		c.setStock(stock);
-		c.setFlavorNotes(flavorNotes);
-		c.setBrewMethod(brewMethod);
-		coffeeList.add(c);
+		Coffee k = new Coffee();
+		k.setId(coffeeList.size() + 1);
+		k.setName(name);
+		k.setType(type);
+		k.setSize(size);
+		k.setPrice(price);
+		k.setRoastLevel(roastLevel);
+		k.setOrigin(origin);
+		k.setDecaf(isDecaf);
+		k.setStock(stock);
+		k.setFlavorNotes(flavorNotes);
+		k.setBrewMethod(brewMethod);
+		coffeeList.add(k);
 		return "redirect:/";
 	}
 
@@ -97,7 +97,7 @@ public class HomeController {
 						 @RequestParam String origin,
 						 @RequestParam boolean isDecaf,
 						 @RequestParam int stock,
-						 @RequestParam String flavorNotes,  // Receive as a single string
+						 @RequestParam String flavorNotes,
 						 @RequestParam String brewMethod) {
 
 		for (Coffee coffee : coffeeList) {
