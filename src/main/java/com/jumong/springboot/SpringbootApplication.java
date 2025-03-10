@@ -1,120 +1,105 @@
 package com.jumong.springboot;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-@SpringBootApplication
-@Controller
-public class HomeController {
-	private List<Coffee> coffeeList = new ArrayList<>();
+public class Coffee {
+    private int id;
+    private String name;
+    private String type;
+    private String size;
+    private double price;
+    private String roastLevel;
+    private String origin;
+    private boolean isDecaf;
+    private int stock;
+    private List<String> flavorNotes;
+    private String brewMethod;
 
-	public static void main(String[] args) {
-		SpringApplication.run(HomeController.class, args);
-	}
+    public Coffee(){
 
-	public HomeController() {
+    }
 
-		coffeeList.add(new Coffee(1, "Espresso", "Arabica", "Small", 3.50, "Dark", "Ethiopia", false, 10, Arrays.asList("Chocolate", "Nutty"), "Espresso"));
-		coffeeList.add(new Coffee(2, "Latte", "Arabica", "Medium", 4.50, "Medium", "Brazil", false, 8, Arrays.asList("Creamy", "Sweet"), "Drip"));
-		coffeeList.add(new Coffee(3, "Cappuccino", "Robusta", "Large", 5.00, "Medium", "Colombia", false, 12, Arrays.asList("Fruity", "Bold"), "French Press"));
-		coffeeList.add(new Coffee(4, "Mocha", "Arabica", "Medium", 4.75, "Dark", "Guatemala", false, 6, Arrays.asList("Chocolate", "Smooth"), "Espresso"));
-		coffeeList.add(new Coffee(5, "Americano", "Robusta", "Large", 3.25, "Light", "Kenya", false, 15, Arrays.asList("Citrus", "Balanced"), "Drip"));
-	}
+    public Coffee(int id, String name, String type, String size, double price, String roastLevel, String origin, boolean isDecaf, int stock, List<String> flavorNotes, String brewMethod) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.size = size;
+        this.price = price;
+        this.roastLevel = roastLevel;
+        this.origin = origin;
+        this.isDecaf = isDecaf;
+        this.stock = stock;
+        this.flavorNotes = flavorNotes;
+        this.brewMethod = brewMethod;
+    }
 
+    public int getId() {
+        return id;
+    }
 
-	@GetMapping("/")
-	public String getCoffees(Model model){
-		model.addAttribute("coffees", coffeeList);
-		return "index";
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
-	@GetMapping("/delete")
-	public String deleteCoffee(@RequestParam int id){
-		coffeeList.removeIf(coffee -> coffee.getId() == id);
-		return "redirect:/";
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@GetMapping("/add")
-	public String add(){
-		return "new";
-	}
+    public String getType() { return type; }
 
-	@PostMapping("/save")
-	public String save(@RequestParam String name,
-					   @RequestParam String type,
-					   @RequestParam String size,
-					   @RequestParam double price,
-					   @RequestParam String roastLevel,
-					   @RequestParam String origin,
-					   @RequestParam boolean isDecaf,
-					   @RequestParam int stock,
-					   @RequestParam List<String> flavorNotes,
-					   @RequestParam String brewMethod){
-		Coffee k = new Coffee();
-		k.setId(coffeeList.size() + 1);
-		k.setName(name);
-		k.setType(type);
-		k.setSize(size);
-		k.setPrice(price);
-		k.setRoastLevel(roastLevel);
-		k.setOrigin(origin);
-		k.setDecaf(isDecaf);
-		k.setStock(stock);
-		k.setFlavorNotes(flavorNotes);
-		k.setBrewMethod(brewMethod);
-		coffeeList.add(k);
-		return "redirect:/";
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	@GetMapping("/edit")
-	public String edit(@RequestParam int id, Model model) {
-		for (Coffee coffee : coffeeList) {
-			if (coffee.getId() == id) {
-				model.addAttribute("coffee", coffee);
-				return "edit";
-			}
-		}
-		return "redirect:/";
-	}
+    public String getSize() { return size; }
 
-	@PostMapping("/update")
-	public String update(@RequestParam int id,
-						 @RequestParam String name,
-						 @RequestParam String type,
-						 @RequestParam String size,
-						 @RequestParam double price,
-						 @RequestParam String roastLevel,
-						 @RequestParam String origin,
-						 @RequestParam boolean isDecaf,
-						 @RequestParam int stock,
-						 @RequestParam String flavorNotes,
-						 @RequestParam String brewMethod) {
+    public void setSize(String size) {
+        this.size = size;
+    }
 
-		for (Coffee coffee : coffeeList) {
-			if (coffee.getId() == id) {
-				coffee.setName(name);
-				coffee.setType(type);
-				coffee.setSize(size);
-				coffee.setPrice(price);
-				coffee.setRoastLevel(roastLevel);
-				coffee.setOrigin(origin);
-				coffee.setDecaf(isDecaf);
-				coffee.setStock(stock);
-				coffee.setFlavorNotes(Arrays.asList(flavorNotes.split(", "))); // Convert string to list
-				coffee.setBrewMethod(brewMethod);
-				break;
-			}
-		}
-		return "redirect:/";
-	}
+    public double getPrice() { return price; }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getRoastLevel() { return roastLevel; }
+
+    public void setRoastLevel(String roastLevel) {
+        this.roastLevel = roastLevel;
+    }
+
+    public String getOrigin() { return origin; }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public boolean isDecaf() { return isDecaf; }
+
+    public void setDecaf(boolean decaf) {
+        isDecaf = decaf;
+    }
+
+    public int getStock() { return stock; }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public List<String> getFlavorNotes() {
+        return flavorNotes; }
+
+    public void setFlavorNotes(List<String> flavorNotes) {
+        this.flavorNotes = flavorNotes;
+    }
+
+    public String getBrewMethod() { return brewMethod; }
+
+    public void setBrewMethod(String brewMethod) {
+        this.brewMethod = brewMethod;
+    }
 }
