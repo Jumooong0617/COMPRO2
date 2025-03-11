@@ -98,21 +98,12 @@ public class HomeController {
 					   @RequestParam int stock,
 					   @RequestParam List<String> flavorNotes,
 					   @RequestParam String brewMethod) {
-		Coffee c = new Coffee();
-		c.setId(coffeeList.size() + 1);
-		c.setName(name);
-		c.setType(type);
-		c.setSize(size);
-		c.setPrice(price);
-		c.setRoastLevel(roastLevel);
-		c.setOrigin(origin);
-		c.setDecaf(isDecaf);
-		c.setStock(stock);
-		c.setFlavorNotes(flavorNotes);
-		c.setBrewMethod(brewMethod);
+
+		Coffee c = new Coffee(coffeeList.size() + 1, name, type, size, price, roastLevel, origin, isDecaf, stock, flavorNotes, brewMethod);
 		coffeeList.add(c);
 		return "redirect:/";
 	}
+
 
 	/**
 	 * Handles GET requests to the "/edit" URL.
@@ -178,7 +169,6 @@ public class HomeController {
 				// Split the flavorNotes string into a list and trim each note to remove extra spaces
 				List<String> updatedFlavorNotes = Arrays.asList(flavorNotes.split("\\s*,\\s*")); // Regular expression to handle optional spaces after commas
 				coffee.setFlavorNotes(updatedFlavorNotes);
-
 				coffee.setBrewMethod(brewMethod);
 				break;
 			}
