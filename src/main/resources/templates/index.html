@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Coffee List</title>
+    <meta charset="UTF-8">
+    <title>Coffee</title>
 </head>
 <body>
-<h1>Available Coffees</h1>
-<ul>
-    <li th:each="coffee : ${coffees}">
-        <span th:text="${coffee.name}"></span>
-        <a th:href="@{/delete(id=${coffee.id})}">Delete</a>
-    </li>
-</ul>
+<h1>Coffee List</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>CoffeeName</th>
+        <th>Name</th>
         <th>Type</th>
         <th>Size</th>
         <th>Price</th>
-        <th>RoastLevel</th>
+        <th>Roast Level</th>
         <th>Origin</th>
         <th>Decaf</th>
         <th>Stock</th>
-        <th>FlavorNotes</th>
-        <th>BrewMethod</th>
+        <th>Flavor Notes</th>
+        <th>Brew Method</th>
         <th>Actions</th>
+
     </tr>
     </thead>
     <tbody>
@@ -34,7 +30,7 @@
         <td th:text = "${coffee.name}"></td>
         <td th:text = "${coffee.type}"></td>
         <td th:text = "${coffee.size}"></td>
-        <td th:text = "${coffee.price}"></td>
+        <td th:text = "${coffee.getPrice}"></td>
         <td th:text = "${coffee.roastLevel}"></td>
         <td th:text = "${coffee.origin}"></td>
         <td th:text = "${coffee.isDecaf}"></td>
@@ -45,10 +41,11 @@
             <a th:href = "@{/delete(id=${coffee.id})}">Delete </a>
             <a th:href="@{/edit(id=${coffee.id})}">Edit</a>
         </td>
-
     </tr>
     </tbody>
 </table>
-
+<div>
+    <a href="/add">Add new coffee</a>
+</div>
 </body>
 </html>
